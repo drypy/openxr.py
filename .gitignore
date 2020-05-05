@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Editor backup files
+*~
+
+# Python object files
+__pycache__/
+*.py[cod]
+
+# Python distutils
+build/
+
+# Python setuptools
+dist/
+*.egg-info/
+
+# pytest artifacts
+.pytest_cache/
+
+# tox artifacts
+.tox/
