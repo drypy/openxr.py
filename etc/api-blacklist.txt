@@ -1,0 +1,3 @@
+*EXT
+*MSFT
+*KHR
