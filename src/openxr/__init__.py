@@ -6,4 +6,10 @@ import sys
 
 assert sys.version_info >= (3, 6), "OpenXR.py requires Python 3.6+"
 
-__all__ = []
+from .error import Error
+from .extension import Extension
+from .instance import Instance
+from .session import Session
+from .system import System
+
+__all__ = ['Error', 'Extension', 'Instance', 'Session', 'System']
