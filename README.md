@@ -7,4 +7,17 @@ OpenXR for Python
 Installation
 ------------
 
-    $ pip install openxr
+    $ pip3 install openxr
+
+Prerequisites
+-------------
+
+- [Python](https://www.python.org) 3.6+
+- [OpenXR SDK](https://github.com/KhronosGroup/OpenXR-SDK) 1.0.8+
+
+Examples
+--------
+
+### Loading the library
+
+    import openxr
