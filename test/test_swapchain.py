@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 # This is free and unencumbered software released into the public domain.
 
-"""Test cases for the openxr.error module."""
+"""Test cases for the openxr.swapchain module."""
 
-from openxr import Error
-
-def test_result():
-    assert(Error(42).result == 42)
+from openxr import Swapchain
 
 if __name__ == '__main__':
     import pytest, sys
