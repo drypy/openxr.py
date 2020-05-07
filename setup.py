@@ -48,9 +48,9 @@ setup(
     ],
     keywords='',
     project_urls={
-        "Source Code": 'https://github.com/drypy/openxr.py',
-        "Documentation": 'https://github.com/drypy/openxr.py/blob/master/README.md',
         "Bug Tracker": 'https://github.com/drypy/openxr.py/issues',
+        "Documentation": 'https://github.com/drypy/openxr.py/blob/master/README.md',
+        "Source Code": 'https://github.com/drypy/openxr.py',
     },
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
