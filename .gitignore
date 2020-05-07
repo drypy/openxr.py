@@ -20,3 +20,7 @@ dist/
 
 # tox artifacts
 .tox/
+
+# OpenXR loader symlinks
+libopenxr_loader.dylib
+libopenxr_loader.so
