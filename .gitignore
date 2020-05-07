@@ -21,6 +21,9 @@ dist/
 # tox artifacts
 .tox/
 
+# mypy artifacts
+.mypy_cache/
+
 # OpenXR loader symlinks
 libopenxr_loader.dylib
 libopenxr_loader.so
