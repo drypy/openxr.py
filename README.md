@@ -3,13 +3,12 @@ OpenXR for Python
 
 [![Project license](https://img.shields.io/badge/license-Public%20Domain-blue.svg)](https://unlicense.org)
 [![PyPI package](https://img.shields.io/pypi/v/openxr.svg)](https://pypi.org/project/openxr/)
+[![Python compatibility](https://img.shields.io/pypi/pyversions/openxr.svg)](https://pypi.org/project/openxr/)
 
-This project provides [ctypes](https://docs.python.org/3/library/ctypes.html)
-bindings to enable programming with [OpenXR](https://www.khronos.org/openxr/)
-from Python.
-
-OpenXR is the new cross-platform, open standard and API for virtual reality
-(VR) and augmented reality (AR) devices. (Think OpenGL for VR/AR.)
+**OpenXR.py** implements Python bindings for [OpenXR](https://www.khronos.org/openxr/)
+[1.0](https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html),
+the open standard and cross-platform API for virtual reality (VR) and
+augmented reality (AR) hardware.
 
 Installation
 ------------
@@ -20,6 +19,8 @@ Prerequisites
 -------------
 
 - [Python](https://www.python.org) 3.6+
+  with [ctypes](https://docs.python.org/3/library/ctypes.html)
+
 - [OpenXR SDK](https://github.com/KhronosGroup/OpenXR-SDK) 1.0.8+
 
 Examples
@@ -41,7 +42,7 @@ Install the Debian packages for the OpenXR SDK's loader as follows:
 
     $ apt install libopenxr-loader1
 
-That is the only required package. Find related packages of interest using:
+That's the only required package, but find related packages of interest using:
 
     $ apt search openxr
 
