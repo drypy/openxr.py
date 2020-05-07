@@ -47,7 +47,11 @@ setup(
         'Topic :: Software Development :: User Interfaces',
     ],
     keywords='',
-    project_urls={'Source': 'https://github.com/drypy/openxr.py'},
+    project_urls={
+        "Source Code": 'https://github.com/drypy/openxr.py',
+        "Documentation": 'https://github.com/drypy/openxr.py/blob/master/README.md',
+        "Bug Tracker": 'https://github.com/drypy/openxr.py/issues',
+    },
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     install_requires=[],
