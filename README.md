@@ -50,3 +50,11 @@ In addition, you _will_ need an OpenXR runtime for your hardware. In the
 absence of suitable vendor-supplied runtimes, have a look at the open-source
 [Monado](https://monado.freedesktop.org) project which supports many common
 devices.
+
+See Also
+--------
+
+- [OpenXR.rb](https://github.com/dryruby/openxr.rb): OpenXR bindings Ruby.
+
+- [Unofficial OpenXR Tests](https://github.com/artob/openxr-rspec):
+  An unofficial OpenXR conformance test suite.
