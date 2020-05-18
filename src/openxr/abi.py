@@ -3,6 +3,7 @@
 from ctypes import *
 
 # Scalars:
+
 XrVersion = c_uint64
 XrFlags64 = c_uint64
 XrSystemId = c_uint64
@@ -12,6 +13,7 @@ XrTime = c_int64
 XrDuration = c_int64
 
 # Handles:
+
 class XrInstance(Structure):
     _fields_ = [('handle', c_void_p)]
 
@@ -31,6 +33,7 @@ class XrActionSet(Structure):
     _fields_ = [('handle', c_void_p)]
 
 # Constants:
+
 XR_TRUE = 1
 XR_FALSE = 0
 XR_MAX_EXTENSION_NAME_SIZE = 128
@@ -49,7 +52,101 @@ XR_MAX_LOCALIZED_ACTION_SET_NAME_SIZE = 128
 XR_MAX_ACTION_NAME_SIZE = 64
 XR_MAX_LOCALIZED_ACTION_NAME_SIZE = 128
 
-XrResult = c_int  # enum
+# Enums:
+
+XrActionType = c_int
+XR_ACTION_TYPE_BOOLEAN_INPUT = 1
+XR_ACTION_TYPE_FLOAT_INPUT = 2
+XR_ACTION_TYPE_VECTOR2F_INPUT = 3
+XR_ACTION_TYPE_POSE_INPUT = 4
+XR_ACTION_TYPE_VIBRATION_OUTPUT = 100
+
+XrAndroidThreadTypeKHR = c_int
+XR_ANDROID_THREAD_TYPE_APPLICATION_MAIN_KHR = 1
+XR_ANDROID_THREAD_TYPE_APPLICATION_WORKER_KHR = 2
+XR_ANDROID_THREAD_TYPE_RENDERER_MAIN_KHR = 3
+XR_ANDROID_THREAD_TYPE_RENDERER_WORKER_KHR = 4
+
+XrCompositionLayerFlagBits = c_int
+XR_COMPOSITION_LAYER_CORRECT_CHROMATIC_ABERRATION_BIT = 1
+XR_COMPOSITION_LAYER_BLEND_TEXTURE_SOURCE_ALPHA_BIT = 2
+XR_COMPOSITION_LAYER_UNPREMULTIPLIED_ALPHA_BIT = 4
+
+XrDebugUtilsMessageSeverityFlagBitsEXT = c_int
+XR_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT = 1
+XR_DEBUG_UTILS_MESSAGE_SEVERITY_INFO_BIT_EXT = 16
+XR_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT = 256
+XR_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT = 4096
+
+XrDebugUtilsMessageTypeFlagBitsEXT = c_int
+XR_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT = 1
+XR_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT = 2
+XR_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT = 4
+XR_DEBUG_UTILS_MESSAGE_TYPE_CONFORMANCE_BIT_EXT = 8
+
+XrEnvironmentBlendMode = c_int
+XR_ENVIRONMENT_BLEND_MODE_OPAQUE = 1
+XR_ENVIRONMENT_BLEND_MODE_ADDITIVE = 2
+XR_ENVIRONMENT_BLEND_MODE_ALPHA_BLEND = 3
+
+XrEyeVisibility = c_int
+XR_EYE_VISIBILITY_BOTH = 0
+XR_EYE_VISIBILITY_LEFT = 1
+XR_EYE_VISIBILITY_RIGHT = 2
+
+XrFormFactor = c_int
+XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY = 1
+XR_FORM_FACTOR_HANDHELD_DISPLAY = 2
+XR_FORM_FACTOR_MAX_ENUM = 0x7FFFFFFF
+
+XrInputSourceLocalizedNameFlagBits = c_int
+XR_INPUT_SOURCE_LOCALIZED_NAME_USER_PATH_BIT = 1
+XR_INPUT_SOURCE_LOCALIZED_NAME_INTERACTION_PROFILE_BIT = 2
+XR_INPUT_SOURCE_LOCALIZED_NAME_COMPONENT_BIT = 4
+
+XrInstanceCreateFlagBits = c_int
+
+XrObjectType = c_int
+XR_OBJECT_TYPE_UNKNOWN = 0
+XR_OBJECT_TYPE_INSTANCE = 1
+XR_OBJECT_TYPE_SESSION = 2
+XR_OBJECT_TYPE_SWAPCHAIN = 3
+XR_OBJECT_TYPE_SPACE = 4
+XR_OBJECT_TYPE_ACTION_SET = 5
+XR_OBJECT_TYPE_ACTION = 6
+
+XrOverlayMainSessionFlagBitsEXTX = c_int
+XR_OVERLAY_MAIN_SESSION_ENABLED_COMPOSITION_LAYER_INFO_DEPTH_BIT_EXTX = 1
+
+XrOverlaySessionCreateFlagBitsEXTX = c_int
+XR_OVERLAY_SESSION_CREATE_RELAXED_DISPLAY_TIME_BIT_EXTX = 1
+
+XrPerfSettingsDomainEXT = c_int
+XR_PERF_SETTINGS_DOMAIN_CPU_EXT = 1
+XR_PERF_SETTINGS_DOMAIN_GPU_EXT = 2
+
+XrPerfSettingsLevelEXT = c_int
+XR_PERF_SETTINGS_LEVEL_POWER_SAVINGS_EXT = 0
+XR_PERF_SETTINGS_LEVEL_SUSTAINED_LOW_EXT = 25
+XR_PERF_SETTINGS_LEVEL_SUSTAINED_HIGH_EXT = 50
+XR_PERF_SETTINGS_LEVEL_BOOST_EXT = 75
+
+XrPerfSettingsNotificationLevelEXT = c_int
+XR_PERF_SETTINGS_NOTIF_LEVEL_NORMAL_EXT = 0
+XR_PERF_SETTINGS_NOTIF_LEVEL_WARNING_EXT = 25
+XR_PERF_SETTINGS_NOTIF_LEVEL_IMPAIRED_EXT = 75
+
+XrPerfSettingsSubDomainEXT = c_int
+XR_PERF_SETTINGS_SUB_DOMAIN_COMPOSITING_EXT = 1
+XR_PERF_SETTINGS_SUB_DOMAIN_RENDERING_EXT = 2
+XR_PERF_SETTINGS_SUB_DOMAIN_THERMAL_EXT = 3
+
+XrReferenceSpaceType = c_int
+XR_REFERENCE_SPACE_TYPE_VIEW = 1
+XR_REFERENCE_SPACE_TYPE_LOCAL = 2
+XR_REFERENCE_SPACE_TYPE_STAGE = 3
+
+XrResult = c_int
 XR_SUCCESS = 0
 XR_TIMEOUT_EXPIRED = 1
 XR_SESSION_LOSS_PENDING = 3
@@ -108,7 +205,30 @@ XR_ERROR_ANDROID_THREAD_SETTINGS_FAILURE_KHR = -1000003001
 XR_ERROR_CREATE_SPATIAL_ANCHOR_FAILED_MSFT = -1000039001
 XR_RESULT_MAX_ENUM = 0x7FFFFFFF
 
-XrStructureType = c_int  # enum
+XrSessionCreateFlagBits = c_int
+
+XrSessionState = c_int
+XR_SESSION_STATE_UNKNOWN = 0
+XR_SESSION_STATE_IDLE = 1
+XR_SESSION_STATE_READY = 2
+XR_SESSION_STATE_SYNCHRONIZED = 3
+XR_SESSION_STATE_VISIBLE = 4
+XR_SESSION_STATE_FOCUSED = 5
+XR_SESSION_STATE_STOPPING = 6
+XR_SESSION_STATE_LOSS_PENDING = 7
+XR_SESSION_STATE_EXITING = 8
+
+XrSpaceLocationFlagBits = c_int
+XR_SPACE_LOCATION_ORIENTATION_VALID_BIT = 1
+XR_SPACE_LOCATION_POSITION_VALID_BIT = 2
+XR_SPACE_LOCATION_ORIENTATION_TRACKED_BIT = 4
+XR_SPACE_LOCATION_POSITION_TRACKED_BIT = 8
+
+XrSpaceVelocityFlagBits = c_int
+XR_SPACE_VELOCITY_LINEAR_VALID_BIT = 1
+XR_SPACE_VELOCITY_ANGULAR_VALID_BIT = 2
+
+XrStructureType = c_int
 XR_TYPE_UNKNOWN = 0
 XR_TYPE_API_LAYER_PROPERTIES = 1
 XR_TYPE_EXTENSION_PROPERTIES = 2
@@ -200,144 +320,51 @@ XR_TYPE_VIEW_CONFIGURATION_DEPTH_RANGE_EXT = 1000046000
 XR_TYPE_VIEW_CONFIGURATION_VIEW_FOV_EPIC = 1000059000
 XR_STRUCTURE_TYPE_MAX_ENUM = 0x7FFFFFFF
 
-XrFormFactor = c_int  # enum
-XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY = 1
-XR_FORM_FACTOR_HANDHELD_DISPLAY = 2
-XR_FORM_FACTOR_MAX_ENUM = 0x7FFFFFFF
+XrSwapchainCreateFlagBits = c_int
+XR_SWAPCHAIN_CREATE_PROTECTED_CONTENT_BIT = 1
+XR_SWAPCHAIN_CREATE_STATIC_IMAGE_BIT = 2
+
+XrSwapchainUsageFlagBits = c_int
+XR_SWAPCHAIN_USAGE_COLOR_ATTACHMENT_BIT = 1
+XR_SWAPCHAIN_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT = 2
+XR_SWAPCHAIN_USAGE_UNORDERED_ACCESS_BIT = 4
+XR_SWAPCHAIN_USAGE_TRANSFER_SRC_BIT = 8
+XR_SWAPCHAIN_USAGE_TRANSFER_DST_BIT = 16
+XR_SWAPCHAIN_USAGE_SAMPLED_BIT = 32
+XR_SWAPCHAIN_USAGE_MUTABLE_FORMAT_BIT = 64
+
+XrViewConfigurationType = c_int
+XR_VIEW_CONFIGURATION_TYPE_PRIMARY_MONO = 1
+XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO = 2
+
+XrViewStateFlagBits = c_int
+XR_VIEW_STATE_ORIENTATION_VALID_BIT = 1
+XR_VIEW_STATE_POSITION_VALID_BIT = 2
+XR_VIEW_STATE_ORIENTATION_TRACKED_BIT = 4
+XR_VIEW_STATE_POSITION_TRACKED_BIT = 8
+
+XrVisibilityMaskTypeKHR = c_int
+XR_VISIBILITY_MASK_TYPE_HIDDEN_TRIANGLE_MESH_KHR = 1
+XR_VISIBILITY_MASK_TYPE_VISIBLE_TRIANGLE_MESH_KHR = 2
+XR_VISIBILITY_MASK_TYPE_LINE_LOOP_KHR = 3
+
+# Flags:
 
 XrInstanceCreateFlags = XrFlags64
 XrSessionCreateFlags = XrFlags64
 
+# Structs:
+
 class XrBaseStructure(Structure):
     _fields_ = [('type', XrStructureType), ('next', c_void_p)]
 
-class XrApiLayerProperties(Structure):
-    pass  # TODO
-
-class XrExtensionProperties(Structure):
-    pass  # TODO
-
-class XrApplicationInfo(Structure):
-    pass  # TODO
-
-class XrInstanceCreateInfo(Structure):
-    pass  # TODO
-
-class XrInstanceProperties(Structure):
-    pass  # TODO
-
-class XrEventDataBuffer(Structure):
-    pass  # TODO
-
-class XrSystemGetInfo(Structure):
-    pass  # TODO
-
-class XrSystemGraphicsProperties(Structure):
-    pass  # TODO
-
-class XrSystemTrackingProperties(Structure):
-    pass  # TODO
-
-class XrSystemProperties(Structure):
-    pass  # TODO
-
-class XrSessionCreateInfo(Structure):
-    pass  # TODO
-
-class XrVector3f(Structure):
-    pass  # TODO
-
-class XrSpaceVelocity(Structure):
-    pass  # TODO
-
-class XrQuaternionf(Structure):
-    pass  # TODO
-
-class XrPosef(Structure):
-    pass  # TODO
-
-class XrReferenceSpaceCreateInfo(Structure):
-    pass  # TODO
-
-class XrExtent2Df(Structure):
-    pass  # TODO
-
-class XrActionSpaceCreateInfo(Structure):
-    pass  # TODO
-
-class XrSpaceLocation(Structure):
-    pass  # TODO
-
-class XrViewConfigurationProperties(Structure):
-    pass  # TODO
-
-class XrViewConfigurationView(Structure):
-    pass  # TODO
-
-class XrSwapchainCreateInfo(Structure):
-    pass  # TODO
-
-class XrSwapchainImageBaseHeader(Structure):
-    pass  # TODO
-
-class XrSwapchainImageAcquireInfo(Structure):
-    pass  # TODO
-
-class XrSwapchainImageWaitInfo(Structure):
-    pass  # TODO
-
-class XrSwapchainImageReleaseInfo(Structure):
-    pass  # TODO
-
-class XrSessionBeginInfo(Structure):
-    pass  # TODO
-
-class XrFrameWaitInfo(Structure):
-    pass  # TODO
-
-class XrFrameState(Structure):
-    pass  # TODO
-
-class XrFrameBeginInfo(Structure):
-    pass  # TODO
-
-class XrCompositionLayerBaseHeader(Structure):
-    pass  # TODO
-
-class XrFrameEndInfo(Structure):
-    pass  # TODO
-
-class XrViewLocateInfo(Structure):
-    pass  # TODO
-
-class XrViewState(Structure):
-    pass  # TODO
-
-class XrFovf(Structure):
-    pass  # TODO
-
-class XrView(Structure):
+class XrActionCreateInfo(Structure):
     pass  # TODO
 
 class XrActionSetCreateInfo(Structure):
     pass  # TODO
 
-class XrActionCreateInfo(Structure):
-    pass  # TODO
-
-class XrActionSuggestedBinding(Structure):
-    pass  # TODO
-
-class XrInteractionProfileSuggestedBinding(Structure):
-    pass  # TODO
-
-class XrSessionActionSetsAttachInfo(Structure):
-    pass  # TODO
-
-class XrInteractionProfileState(Structure):
-    pass  # TODO
-
-class XrActionStateGetInfo(Structure):
+class XrActionSpaceCreateInfo(Structure):
     pass  # TODO
 
 class XrActionStateBoolean(Structure):
@@ -346,113 +373,62 @@ class XrActionStateBoolean(Structure):
 class XrActionStateFloat(Structure):
     pass  # TODO
 
-class XrVector2f(Structure):
-    pass  # TODO
-
-class XrActionStateVector2f(Structure):
+class XrActionStateGetInfo(Structure):
     pass  # TODO
 
 class XrActionStatePose(Structure):
     pass  # TODO
 
-class XrActiveActionSet(Structure):
+class XrActionStateVector2f(Structure):
+    pass  # TODO
+
+class XrActionSuggestedBinding(Structure):
     pass  # TODO
 
 class XrActionsSyncInfo(Structure):
     pass  # TODO
 
-class XrBoundSourcesForActionEnumerateInfo(Structure):
+class XrActiveActionSet(Structure):
     pass  # TODO
 
-class XrInputSourceLocalizedNameGetInfo(Structure):
+class XrApiLayerProperties(Structure):
     pass  # TODO
 
-class XrHapticActionInfo(Structure):
+class XrApplicationInfo(Structure):
     pass  # TODO
-
-class XrHapticBaseHeader(Structure):
-    pass  # TODO
-
 
 XrBaseInStructure = XrBaseStructure
+
 XrBaseOutStructure = XrBaseStructure
 
-class XrOffset2Di(Structure):
-    pass  # TODO
-
-class XrExtent2Di(Structure):
-    pass  # TODO
-
-class XrRect2Di(Structure):
-    pass  # TODO
-
-class XrSwapchainSubImage(Structure):
-    pass  # TODO
-
-class XrCompositionLayerProjectionView(Structure):
-    pass  # TODO
-
-class XrCompositionLayerProjection(Structure):
-    pass  # TODO
-
-class XrCompositionLayerQuad(Structure):
-    pass  # TODO
-
-class XrEventDataBaseHeader(Structure):
-    pass  # TODO
-
-class XrEventDataEventsLost(Structure):
-    pass  # TODO
-
-class XrEventDataInstanceLossPending(Structure):
-    pass  # TODO
-
-class XrEventDataSessionStateChanged(Structure):
-    pass  # TODO
-
-class XrEventDataReferenceSpaceChangePending(Structure):
-    pass  # TODO
-
-class XrEventDataInteractionProfileChanged(Structure):
-    pass  # TODO
-
-class XrHapticVibration(Structure):
-    pass  # TODO
-
-class XrOffset2Df(Structure):
-    pass  # TODO
-
-class XrRect2Df(Structure):
-    pass  # TODO
-
-class XrVector4f(Structure):
+class XrBoundSourcesForActionEnumerateInfo(Structure):
     pass  # TODO
 
 class XrColor4f(Structure):
     pass  # TODO
 
-class XrCompositionLayerCubeKHR(Structure):
+class XrCompositionLayerBaseHeader(Structure):
     pass  # TODO
 
-class XrCompositionLayerDepthInfoKHR(Structure):
+class XrCompositionLayerCubeKHR(Structure):
     pass  # TODO
 
 class XrCompositionLayerCylinderKHR(Structure):
     pass  # TODO
 
+class XrCompositionLayerDepthInfoKHR(Structure):
+    pass  # TODO
+
 class XrCompositionLayerEquirectKHR(Structure):
     pass  # TODO
 
-class XrVisibilityMaskKHR(Structure):
+class XrCompositionLayerProjection(Structure):
     pass  # TODO
 
-class XrEventDataVisibilityMaskChangedKHR(Structure):
+class XrCompositionLayerProjectionView(Structure):
     pass  # TODO
 
-class XrEventDataPerfSettingsEXT(Structure):
-    pass  # TODO
-
-class XrDebugUtilsObjectNameInfoEXT(Structure):
+class XrCompositionLayerQuad(Structure):
     pass  # TODO
 
 class XrDebugUtilsLabelEXT(Structure):
@@ -464,16 +440,169 @@ class XrDebugUtilsMessengerCallbackDataEXT(Structure):
 class XrDebugUtilsMessengerCreateInfoEXT(Structure):
     pass  # TODO
 
-class XrSystemEyeGazeInteractionPropertiesEXT(Structure):
+class XrDebugUtilsObjectNameInfoEXT(Structure):
+    pass  # TODO
+
+class XrEventDataBaseHeader(Structure):
+    pass  # TODO
+
+class XrEventDataBuffer(Structure):
+    pass  # TODO
+
+class XrEventDataEventsLost(Structure):
+    pass  # TODO
+
+class XrEventDataInstanceLossPending(Structure):
+    pass  # TODO
+
+class XrEventDataInteractionProfileChanged(Structure):
+    pass  # TODO
+
+class XrEventDataMainSessionVisibilityChangedEXTX(Structure):
+    pass  # TODO
+
+class XrEventDataPerfSettingsEXT(Structure):
+    pass  # TODO
+
+class XrEventDataReferenceSpaceChangePending(Structure):
+    pass  # TODO
+
+class XrEventDataSessionStateChanged(Structure):
+    pass  # TODO
+
+class XrEventDataVisibilityMaskChangedKHR(Structure):
+    pass  # TODO
+
+class XrExtensionProperties(Structure):
+    pass  # TODO
+
+class XrExtent2Df(Structure):
+    pass  # TODO
+
+class XrExtent2Di(Structure):
     pass  # TODO
 
 class XrEyeGazeSampleTimeEXT(Structure):
     pass  # TODO
 
+class XrFovf(Structure):
+    pass  # TODO
+
+class XrFrameBeginInfo(Structure):
+    pass  # TODO
+
+class XrFrameEndInfo(Structure):
+    pass  # TODO
+
+class XrFrameState(Structure):
+    pass  # TODO
+
+class XrFrameWaitInfo(Structure):
+    pass  # TODO
+
+class XrGraphicsBindingD3D11KHR(Structure):
+    pass  # TODO
+
+class XrGraphicsBindingD3D12KHR(Structure):
+    pass  # TODO
+
+class XrGraphicsBindingOpenGLESAndroidKHR(Structure):
+    pass  # TODO
+
+class XrGraphicsBindingOpenGLWaylandKHR(Structure):
+    pass  # TODO
+
+class XrGraphicsBindingOpenGLWin32KHR(Structure):
+    pass  # TODO
+
+class XrGraphicsBindingOpenGLXcbKHR(Structure):
+    pass  # TODO
+
+class XrGraphicsBindingOpenGLXlibKHR(Structure):
+    pass  # TODO
+
+class XrGraphicsBindingVulkanKHR(Structure):
+    pass  # TODO
+
+class XrGraphicsRequirementsD3D11KHR(Structure):
+    pass  # TODO
+
+class XrGraphicsRequirementsD3D12KHR(Structure):
+    pass  # TODO
+
+class XrGraphicsRequirementsOpenGLESKHR(Structure):
+    pass  # TODO
+
+class XrGraphicsRequirementsOpenGLKHR(Structure):
+    pass  # TODO
+
+class XrGraphicsRequirementsVulkanKHR(Structure):
+    pass  # TODO
+
+class XrHapticActionInfo(Structure):
+    pass  # TODO
+
+class XrHapticBaseHeader(Structure):
+    pass  # TODO
+
+class XrHapticVibration(Structure):
+    pass  # TODO
+
+class XrInputSourceLocalizedNameGetInfo(Structure):
+    pass  # TODO
+
+class XrInstanceCreateInfo(Structure):
+    pass  # TODO
+
+class XrInstanceCreateInfoAndroidKHR(Structure):
+    pass  # TODO
+
+class XrInstanceProperties(Structure):
+    pass  # TODO
+
+class XrInteractionProfileState(Structure):
+    pass  # TODO
+
+class XrInteractionProfileSuggestedBinding(Structure):
+    pass  # TODO
+
+class XrOffset2Df(Structure):
+    pass  # TODO
+
+class XrOffset2Di(Structure):
+    pass  # TODO
+
+class XrPosef(Structure):
+    pass  # TODO
+
+class XrQuaternionf(Structure):
+    pass  # TODO
+
+class XrRect2Df(Structure):
+    pass  # TODO
+
+class XrRect2Di(Structure):
+    pass  # TODO
+
+class XrReferenceSpaceCreateInfo(Structure):
+    pass  # TODO
+
+class XrSessionActionSetsAttachInfo(Structure):
+    pass  # TODO
+
+class XrSessionBeginInfo(Structure):
+    pass  # TODO
+
+class XrSessionCreateInfo(Structure):
+    pass  # TODO
+
 class XrSessionCreateInfoOverlayEXTX(Structure):
     pass  # TODO
 
-class XrEventDataMainSessionVisibilityChangedEXTX(Structure):
+class XrSpaceLocation(Structure):
+    pass  # TODO
+
+class XrSpaceVelocity(Structure):
     pass  # TODO
 
 class XrSpatialAnchorCreateInfoMSFT(Structure):
@@ -482,8 +611,86 @@ class XrSpatialAnchorCreateInfoMSFT(Structure):
 class XrSpatialAnchorSpaceCreateInfoMSFT(Structure):
     pass  # TODO
 
+class XrSwapchainCreateInfo(Structure):
+    pass  # TODO
+
+class XrSwapchainImageAcquireInfo(Structure):
+    pass  # TODO
+
+class XrSwapchainImageBaseHeader(Structure):
+    pass  # TODO
+
+class XrSwapchainImageD3D11KHR(Structure):
+    pass  # TODO
+
+class XrSwapchainImageD3D12KHR(Structure):
+    pass  # TODO
+
+class XrSwapchainImageOpenGLESKHR(Structure):
+    pass  # TODO
+
+class XrSwapchainImageOpenGLKHR(Structure):
+    pass  # TODO
+
+class XrSwapchainImageReleaseInfo(Structure):
+    pass  # TODO
+
+class XrSwapchainImageVulkanKHR(Structure):
+    pass  # TODO
+
+class XrSwapchainImageWaitInfo(Structure):
+    pass  # TODO
+
+class XrSwapchainSubImage(Structure):
+    pass  # TODO
+
+class XrSystemEyeGazeInteractionPropertiesEXT(Structure):
+    pass  # TODO
+
+class XrSystemGetInfo(Structure):
+    pass  # TODO
+
+class XrSystemGraphicsProperties(Structure):
+    pass  # TODO
+
+class XrSystemProperties(Structure):
+    pass  # TODO
+
+class XrSystemTrackingProperties(Structure):
+    pass  # TODO
+
+class XrVector2f(Structure):
+    pass  # TODO
+
+class XrVector3f(Structure):
+    pass  # TODO
+
+class XrVector4f(Structure):
+    pass  # TODO
+
+class XrView(Structure):
+    pass  # TODO
+
 class XrViewConfigurationDepthRangeEXT(Structure):
     pass  # TODO
 
+class XrViewConfigurationProperties(Structure):
+    pass  # TODO
+
+class XrViewConfigurationView(Structure):
+    pass  # TODO
+
 class XrViewConfigurationViewFovEPIC(Structure):
+    pass  # TODO
+
+class XrViewLocateInfo(Structure):
+    pass  # TODO
+
+class XrViewState(Structure):
+    pass  # TODO
+
+class XrVisibilityMaskKHR(Structure):
+    pass  # TODO
+
+class XrVulkanSwapchainFormatListCreateInfoKHR(Structure):
     pass  # TODO
