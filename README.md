@@ -54,7 +54,11 @@ devices.
 See Also
 --------
 
-- [OpenXR.rb](https://github.com/dryruby/openxr.rb): OpenXR bindings Ruby.
+- [OpenXR.rb](https://github.com/dryruby/openxr.rb):
+  OpenXR bindings for Ruby.
+
+- [OpenXR.dart](https://github.com/drydart/openxr.dart):
+  OpenXR bindings for Dart & Flutter.
 
 - [Unofficial OpenXR Tests](https://github.com/artob/openxr-rspec):
   An unofficial OpenXR conformance test suite.
