@@ -54,7 +54,9 @@ setup(
     },
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
-    install_requires=[],
+    install_requires=[
+        'dogma.py>=0',
+    ],
     python_requires='~=3.6',
     extras_require={'test': ['pytest'],},
 )
